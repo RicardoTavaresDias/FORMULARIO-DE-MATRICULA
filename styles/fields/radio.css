@@ -1,0 +1,64 @@
+label + .radio-wrapper {
+  margin-top: 1rem;
+}
+
+.radio-wrapper {
+  display: grid;
+  /* auto-fit vai encaixar automatico dentro da caixa, ninmax vai dizer o minimo e maximo de coluna nessa função, 7.5rem o minimo e 1fr o maximo que será automatico*/
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 1rem;
+  
+}
+
+.radio-inner {
+  border: 1px solid var(--stroke-default);
+  border-radius: 0.5rem;
+
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+
+  padding: 2rem 0.5rem 0.5rem;
+
+  position: relative;
+
+  /* Aqui remove tudo que foi tratado no arquivo input.css, vai zerar */
+  & input,
+  & input:focus,
+  & input:hover {
+    all: unset;
+
+    /* Aqui esta definido a bolinha svg para ficar nas imagens da figura manhã e Tarde, realizando posição delas */
+    position: absolute;
+    inset: 0;
+    /* anterior -  foi realizado esconder o botão original do input */
+  }
+  .radio-imagem {
+    background-image: url(../../assets/icons/radio-default.svg);
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  /* focus-within quer dizer se tem alguma coisa com foco na caixinha  */
+  &:hover, &:focus-within {
+    border: 1px solid var(--stroke-gightlight);
+
+    & .radio-imagem {
+      background-image: url(../../assets/icons/radio-houver.svg);
+    }
+  }
+
+  /* :has(:checked) quando tem ou é clicado o input estará checked */
+  &:has(:checked) {
+    border: 2px solid var(--stroke-gightlight);
+
+    & .radio-imagem {
+      background-image: url(../../assets/icons/radio-checked.svg);
+    }
+  }
+}

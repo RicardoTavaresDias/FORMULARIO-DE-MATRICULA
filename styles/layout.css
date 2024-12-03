@@ -1,0 +1,58 @@
+
+#app {
+  display: grid;
+  /* Dividindo os dois conteudos na tela com calculo (656*100)/1280 656 é tamanho definido na figma e 100% / tamanho do monitor*/
+  grid-template-columns: 51.25% 48.75%;
+
+  height: 100vh; /* tamanho total da tela */
+  /* aqui não vai ter rolagem e nem transbordamento do conteudo deixando com a barra de rolagem */
+  overflow: hidden; /*GARANTINDO*/
+
+}
+
+main {
+  /* aqui vai ter rolagem */
+  overflow: auto;
+  padding: 4rem;
+
+  /* Limitando o conteudo e texto */
+  & .main-container {
+    max-width: 33rem;
+    margin-left: auto;
+  }
+
+  & .back {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  & h1 {
+    font: 600 1.5rem/1.25 var(--font-family);
+    margin-bottom: .5rem;
+  }
+}
+
+aside {
+  background-color: var(--surface-secondary);
+  padding: 4rem;
+
+  /* Limitando o conteudo e texto */
+  & .aside-container {
+    max-width: 31rem;
+
+    & img {
+      margin-top: 2rem;
+    }
+  }
+
+  & h2 {
+    font: 600 2.5rem/1.25 var(--font-family);
+    margin-bottom: .5rem;
+
+    & span {
+      color: var(--text-highlight);
+    }
+  }
+}

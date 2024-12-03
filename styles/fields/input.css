@@ -1,0 +1,120 @@
+/* Fields são campos */
+
+input, textarea, select {
+  /* No Select remove a setinha para baixo que vem configurado como padrão */
+  appearance: none;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  outline: 1px solid var(--stroke-default);
+
+  padding: 0.75rem 1rem;
+
+  font: var(--text);
+}
+
+label {
+  font: var(--text-sm);
+  color: var(--text-secondary);
+
+  /* Forma já definida pelo html é inline e devemos colocar em block para ficar certo um baixo do outro */
+  display: block;
+  margin-bottom: 0.25rem; /* aceitando espaçamento em baixo devido display:block */
+}
+
+/* Focu é quando clica nele e ele ficar focado no local */
+input:focus, 
+select:focus, 
+textarea:focus,
+/* Esse input[type="date"]:focus-within ele vai pesquisar algum elemento esta em foco vai aplicar */
+input[type="date"]:focus-within {
+  
+  outline: 0.25rem solid var(--surface-secondary); /* Borda externo do elemento */
+  border-color: var(--stroke-gightlight); /* Borda interno do elemento */
+  /* outline-offset - é a borada interno para navegador safire pois o border não funciona */
+  outline-offset: .1px;
+}
+
+
+
+
+/* Aqui é para remover do imput calendario a figura de calendario que vem do html como padrão, colocando o posição e backugroud para trocar a figura por icon */
+input[type="date"] {
+  position: relative;
+  
+  /* indicador da figura calendario dentro do input, none para esconder */
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    /* center/contain é contem centralizado dentro do input */
+    background: url(../../assets/icons/calendar-03.svg) center/contain; 
+    right: 1rem; /* colocar a icon no final da direita e dar espaço de 1 rem */
+    width: 1.25rem;
+    height: 1.25rem;
+
+    top: 50%;
+    transform: translateY(-50%); /* para movimentar no eixo Y pra cima ou para baixo*/
+  }
+}
+
+
+select {
+  /* Colocando o icon no select e posição centralização realizado calculo para não ficar chutando a distancia, 100% de 1rem*/
+  background: url(../../assets/icons/arrow-down-01.svg) no-repeat calc(100% - 1rem);
+}
+
+
+.address .flex {
+  gap: 1.25rem;
+}
+
+/* Aqui da classe .input-wrapper se tiver ":has" disable dentro dele, ele vai executar */
+.input-wrapper:has([disable]) {
+  opacity: 0.5;
+}
+
+/* O input que seja disabled executar seguinte comandos a baixo */
+input {
+  &[disabled] {
+    background-color: var(--surface-disabled);
+
+    border: 1px solid var(--stroke-default);
+    color: var(--text-secondary);
+  }
+
+  /* &:invalid Ele vai verificar a invalidade do campo quando tiver verificação required */
+  &:invalid {
+    border:0.125rem solid var(--semantic-error);
+  }
+
+  /* & + small segnifica o "&" input que tenha o irmão Small executara aplicação a baixo */
+  & + small {
+    font: var(--text-sm);
+    color: #78716c;
+
+    /* o padrão do small é inline, inline-block para conseguir dar espaçamento em cima e em baixo */
+    display: inline-block;
+    margin-top: 0.25rem;
+  }
+
+  /* &[required] se meu input tiver required e se o proximo(irmão) tiver .error(que é a DIV), aplicar as alterações a baixo no "Irmão" */
+  &[required] + .error {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    font: var(--text-sm);
+    color: var(--semantic-error);
+
+    margin-top: 0.25rem;
+  }
+
+  /* Se o input não tiver em foco e tiver valid  pegar o irmão .error executar display none */
+  &:not(:focus):valid + .error {
+    display: none;
+  }
+}
