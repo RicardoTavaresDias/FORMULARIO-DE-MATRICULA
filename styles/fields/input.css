@@ -72,6 +72,21 @@ select {
   gap: 1.25rem;
 }
 
+/* address - mobile */
+@media (width < 80em) {
+  .address {
+    & div:nth-child(3) {
+      flex-direction: column;
+    }
+
+    & div:nth-child(4) {
+      flex-direction: column;
+    }
+  }
+}
+
+
+
 /* Aqui da classe .input-wrapper se tiver ":has" disable dentro dele, ele vai executar */
 .input-wrapper:has([disable]) {
   opacity: 0.5;

@@ -56,7 +56,12 @@ main {
   }
 }
 
-
+/* main - mobile */
+@media (width < 80em) {
+  main {
+    padding: 24px;
+  }
+}
 
 aside {
   background-color: var(--surface-secondary);
@@ -82,7 +87,7 @@ aside {
 }
 
 
-/* main - mobile */
+/* aside - mobile */
 @media (width < 80em) {
   aside {
     padding-inline: 24px;
