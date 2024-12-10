@@ -10,9 +10,22 @@
 
 }
 
+
+
+/* #app - mobile */
+@media (width < 80em) {
+  #app {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto; 
+  }
+}
+
+
+
 main {
   /* aqui vai ter rolagem */
-  overflow: auto;
+  overflow: initial;
   padding: 4rem;
 
   /* Limitando o conteudo e texto */
@@ -34,6 +47,17 @@ main {
   }
 }
 
+
+
+/* main - DESCKTOP */
+@media (width >= 80em) {
+  main {
+    overflow: auto;
+  }
+}
+
+
+
 aside {
   background-color: var(--surface-secondary);
   padding: 4rem;
@@ -53,6 +77,33 @@ aside {
 
     & span {
       color: var(--text-highlight);
+    }
+  }
+}
+
+
+/* main - mobile */
+@media (width < 80em) {
+  aside {
+    padding-inline: 24px;
+    padding-block: 24px;
+    text-align: center;
+    
+    & img:nth-child(1){
+      margin-top: 0;
+    }
+
+    & h2 {
+      display: none;
+    }
+
+    & p {
+      font-size: 0;
+    }
+
+    & img:nth-last-child(1){
+      width: 312px;
+      height: 232px;
     }
   }
 }
