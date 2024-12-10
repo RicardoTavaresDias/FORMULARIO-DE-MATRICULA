@@ -16,9 +16,10 @@
 @media (width < 80em) {
   #app {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     overflow: auto; 
+    position: relative;
   }
 }
 
@@ -61,6 +62,9 @@ main {
 @media (width < 80em) {
   main {
     padding: 24px;
+    position: absolute;
+    top: 324px;
+    padding-bottom: 84px;
   }
 }
 
@@ -97,6 +101,8 @@ aside {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 0;
     
     & img:nth-child(1){
       margin-top: 0;
