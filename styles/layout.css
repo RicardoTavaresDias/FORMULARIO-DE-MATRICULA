@@ -91,9 +91,12 @@ aside {
 /* aside - mobile */
 @media (width < 80em) {
   aside {
-    /* padding-inline: 24px; */
+    padding-inline: 24px;
     padding-block: 24px;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     
     & img:nth-child(1){
       margin-top: 0;
